@@ -19,9 +19,10 @@ target/        # Java编译产物
 .DS_Store      # macOS元数据
 
 # ------------------ 特殊场景 ------------------
-# 忽略所有 .txt，但保留 README.txt
+# 忽略所有 .txt，但保留 README.txt 以及 requirements.txt
 *.txt
 !README.txt
+!requirements.txt
 
 # 仅忽略当前目录下的 config.json，子目录不忽略
 /config.json

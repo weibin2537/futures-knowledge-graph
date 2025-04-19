@@ -1,0 +1,38 @@
+# backend/requirements.txt
+# API框架
+fastapi==0.103.1
+uvicorn==0.23.2
+pydantic==2.3.0
+python-multipart==0.0.6
+
+# 数据库
+neo4j==5.10.0
+
+# 文档解析
+PyMuPDF==1.22.5  # 解析PDF
+python-docx==0.8.11  # 解析Word
+openpyxl==3.1.2  # 解析Excel
+pandas==2.1.0  # 处理表格数据
+markdown==3.4.4  # 解析Markdown
+
+# NLP处理
+transformers==4.33.2  # Hugging Face库
+torch==2.0.1  # PyTorch（视GPU情况可以选择CPU版本）
+flair==0.13.0  # 用于NER
+
+# 工具库
+python-dateutil==2.8.2
+uuid==1.30
+requests==2.31.0
+aiofiles==23.2.1
+tqdm==4.66.1
+
+# 日志和监控
+loguru==0.7.0
+
+# CORS支持
+starlette==0.27.0
+
+# 安全库
+python-jose==3.3.0  # JWT令牌
+passlib==1.7.4  # 密码哈希
