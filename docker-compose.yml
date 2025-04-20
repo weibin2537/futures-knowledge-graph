@@ -34,7 +34,7 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: ../docker/backend.Dockerfile
     container_name: futures_knowledge_backend
     ports:
       - "8000:8000"
@@ -61,13 +61,12 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: ../docker/frontend.Dockerfile
     container_name: futures_knowledge_frontend
     ports:
       - "80:80"
     volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      - ./frontend:/app:ro  # Read-only mount for development
     environment:
       - VITE_API_URL=http://localhost:8000
     depends_on:
@@ -88,9 +87,3 @@ volumes:
 networks:
   futures_knowledge_network:
     driver: bridge
-
-# neo4j.conf (存储在项目根目录)
-# dbms.security.procedures.allowlist=apoc.*
-# dbms.security.procedures.unrestricted=apoc.*
-# apoc.import.file.enabled=true
-# apoc.export.file.enabled=true

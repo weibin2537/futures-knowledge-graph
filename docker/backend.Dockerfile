@@ -4,6 +4,9 @@ FROM python:3.9-slim
 # 设置工作目录
 WORKDIR /app
 
+# 使用中国镜像源
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+
 # 安装系统依赖
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \

@@ -11,6 +11,28 @@ COPY package*.json ./
 # 安装项目依赖
 RUN npm install
 
+# 创建基本的 vite.config.js 文件
+RUN echo 'import { defineConfig } from "vite"; \
+import vue from "@vitejs/plugin-vue"; \
+export default defineConfig({ \
+  plugins: [vue()], \
+  root: ".", \
+});' > vite.config.js
+
+# 创建 index.html 文件
+RUN echo '<!DOCTYPE html>\
+<html lang="en">\
+<head>\
+  <meta charset="UTF-8">\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <title>期货业务知识库</title>\
+</head>\
+<body>\
+  <div id="app"></div>\
+  <script type="module" src="/src/main.js"></script>\
+</body>\
+</html>' > index.html
+
 # 复制项目文件
 COPY . .
 
